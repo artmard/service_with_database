@@ -7,8 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
-@Table(name = "tutorials")
-public class Tutorial {
+@Table(name = "books")
+public class book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,9 +18,9 @@ public class Tutorial {
     private String description;
     @Column(name = "published")
     private boolean published;
-    public Tutorial() {
+    public book() {
     }
-    public Tutorial(String title, String description, boolean published) {
+    public book(String title, String description, boolean published) {
         this.title = title;
         this.description = description;
         this.published = published;
@@ -48,7 +48,7 @@ public class Tutorial {
     }
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", desc=" +
+        return "book [id=" + id + ", title=" + title + ", desc=" +
                 description + ", published=" + published + "]";
     }
 }
