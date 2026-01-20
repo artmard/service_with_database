@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/api/borrows")
 public class BorrowController{
     private final BorrowRepository borrowRepository;
     public BorrowController(BorrowRepository borrowRepository)
@@ -17,10 +17,10 @@ public class BorrowController{
         this.borrowRepository = borrowRepository;
     }
 
-//    @GetMapping("/")
-//    public List<Student> getAllStudents() {
-//        return studentRepository.findAll();
-//    }
+    @GetMapping("/")
+    public List<BorrowRecord> getAllBorrows() {
+        return borrowRepository.findAll();
+    }
 //
 //    @GetMapping("/{id}")
 //    public Student getStudentById(@PathVariable("id") long id) {
