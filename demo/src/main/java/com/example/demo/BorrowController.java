@@ -37,20 +37,17 @@ public class BorrowController{
         return borrowRepository.save(new BorrowRecord(borrowRecord.getBookId(), borrowRecord.getStudentId(), borrowRecord.getDays()));
     }
 
-//    @PutMapping("/{id}")
-//    public Student updateStudent(@PathVariable("id") long id, @RequestBody Student student) {
-//        Optional<Student> studentData = studentRepository.findById(id);
-//        if (studentData.isPresent()) {
-//            Student updateStudent = studentData.get();
-//            updateStudent.setFullName(student.getFullName());
-//            updateStudent.setGrade(student.getGrade());
-//            updateStudent.setEmail(student.getEmail());
-//            updateStudent.setActive(student.isActive());
-//            return studentRepository.save(updateStudent);
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @PutMapping("/{id}")
+    public BorrowRecord updateBorrowRecord(@PathVariable("id") long id, @RequestBody BorrowRecord borrowRecord) {
+        Optional<BorrowRecord> borrowData = borrowRepository.findById(id);
+        if (borrowData.isPresent()) {
+            BorrowRecord updateRecord = borrowData.get();
+            updateRecord.setReturned(true);
+            return borrowRepository.save(updateRecord);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
 //
 //    @DeleteMapping("/{id}")
 //    public HttpStatus deleteStudent(@PathVariable("id") long id) {
